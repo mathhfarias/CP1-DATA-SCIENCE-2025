@@ -15,6 +15,7 @@ pages = st.sidebar.selectbox("Escolha a sua seção:", [
     "Quem sou eu?",
     "Formação e Experiências Profissionais",
     "Skills",
+    "Certificados",
     "Análise de Dados"
 ])
 
@@ -58,8 +59,7 @@ st.sidebar.markdown("<br>", unsafe_allow_html=True)
 st.sidebar.markdown("### Desenvolvido por Matheus Farias de Lima")
 
 if pages == "Quem sou eu?":
-    st.image("code.png", width=600, use_container_width=True)
-    st.header("**Matheus Farias de Lima - Estudante de Engenharia de Software**")
+    st.image("IMAGES/MATHEUS.PNG", width=600, use_container_width=True)
     st.write("""
     - 🎓 **Estudante da Faculdade de Informática e Administração Paulista (FIAP)**, atualmente cursando **Engenharia de Software**.
     - 🌍 Apaixonado por **tecnologia e inovação**, com grande interesse em oportunidades internacionais para **expandir experiências profissionais**.
@@ -69,7 +69,7 @@ if pages == "Quem sou eu?":
     """)
 
 elif pages == "Formação e Experiências Profissionais":
-    st.image("fiap.png", width=600, use_container_width=True)
+    st.image("IMAGES/FIAP.png", width=600, use_container_width=True)
     st.header("🎓 Formação e Experiências Profissionais")
     st.write("""
     - **Formação Acadêmica:**
@@ -84,7 +84,7 @@ elif pages == "Formação e Experiências Profissionais":
     """)
 
 elif pages == "Skills":
-    st.image("code.png", width=600, use_container_width=True)
+    st.image("IMAGES/SKILLS.png", width=600, use_container_width=True)
     st.header("🚀 Skills")
     st.write("""
     - **Hard Skills:**
@@ -98,7 +98,16 @@ elif pages == "Skills":
         - ⏳ **Gestão de tempo e organização:** Priorização de tarefas e eficiência no cumprimento de prazos.
     - **Idiomas:**
         - 🌍 **Fluente em inglês**, certificado pelo **OHLA (Flórida) & TOEFL**.
+        - 🌍 **Básico em espanhol**, aulas durante o periodo escolar.   
     """)
+
+elif pages == "Certificados":
+    st.image("IMAGES/CERTIFICADO DESIGN THINKING.png", width=600, use_container_width=True) 
+    st.image("IMAGES/CERTIFICADO GESTÃO DE INFRAESTRUTURA DE TI.png", width=600, use_container_width=True)
+    st.image("IMAGES/CERTIFICADO FORMAÇÃO SOCIAL E SUSTENTABILIDADE.JPEG", width=600, use_container_width=True)
+    st.image("IMAGES/CERTIFICADO HTML E CSS.JPG", width=600, use_container_width=True)
+
+                
 elif pages == "Análise de Dados":
     st.header("📊 Análise de Dados")
 
