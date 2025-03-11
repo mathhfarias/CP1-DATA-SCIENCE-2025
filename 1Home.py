@@ -1,11 +1,13 @@
 import streamlit as st
 import pandas as pd
-import numpy as np
 import scipy.stats as stats
 import plotly.express as px
 import plotly.graph_objects as go
+import numpy as np
+arr = np.zeros(836855861, dtype=np.uint8)  # Uses 1 byte per element instead of 1 byte per bool.
 import plotly.figure_factory as ff
 from plotnine import *
+
 
 # Configuração da página
 st.set_page_config(page_title="Dashboard de Distribuições Probabilísticas", layout="wide")
@@ -121,49 +123,85 @@ elif pages == "Análise de Dados":
 
     **Problema:**
 
-    Analisar o comportamento dos assinantes da Netflix para entender quais fatores influenciam a satisfação e o tempo de visualização, visando melhorar a retenção de clientes e a recomendação de conteúdo.
+    Analisar o comportamento dos views da Stream para entender quais fatores influenciam a satisfação e o tempo de visualização, visando melhorar a retenção de clientes e a recomendação de conteúdo.
 
-    ---
+---
 
-    ### 📝 Dados e Tipos:
+### 📝 Dados e Tipos:
 
-    #### 📈 Dados de Assinantes:
-    - **ID Assinante** (Numérico)
-    - **Idade** (Numérico)
-    - **Gênero** (Categórico)
-    - **Plano** (Categórico)
-    - **Região** (Categórico)
-    - **Tempo de Assinatura** (Numérico)
-    - **Avaliação Média** (Numérico)
+#### Estrutura dos Dados:
+O dataset contém 1000 registros e 11 colunas. Aqui está um resumo das colunas e seus tipos:
 
-    #### 📺 Dados de Conteúdo:
-    - **ID Conteúdo** (Numérico)
-    - **Título** (Categórico)
-    - **Gênero** (Categórico)
-    - **Ano de Lançamento** (Numérico)
-    - **Duração** (Numérico)
-    - **Classificação Indicativa** (Categórico)
-    - **Avaliação** (Numérico)
+    - Channel (string): Nome do canal.
+    - Watch time (Minutes) (int64): Tempo total assistido em minutos.
+    - Stream time (Minutes) (int64): Tempo total de transmissão em minutos.
+    - Peak viewers (int64): Máximo de espectadores simultâneos.
+    - Average viewers (int64): Média de espectadores por transmissão.
+    - Followers (int64): Total de seguidores do canal.
+    - Followers gained (int64): Número de seguidores ganhos.
+    - Views gained (int64): Número de visualizações ganhas.
+    - Partnered (bool): Indica se o canal é parceiro do Twitch.
+    - Mature (bool): Indica se o canal possui conteúdo adulto.
+    - Language (string): Idioma principal do canal.
 
-    #### 📊 Dados de Visualização:
-    - **ID Assinante** (Numérico)
-    - **ID Conteúdo** (Numérico)
-    - **Data de Visualização** (Data)
-    - **Dispositivo** (Categórico)
-    - **Tempo de Visualização** (Numérico)
+### Estatísticas Descritivas:
+    - Média de Watch Time: 418 milhões de minutos
+    - Máximo de Watch Time: 6.2 bilhões de minutos
+    - Média de Peak Viewers: 37 mil espectadores
+    - Máximo de Peak Viewers: 639 mil espectadores
+    - Média de seguidores ganhos: 205 mil
+    - Distribuição de idiomas: O inglês domina, com 343 canais parceiros transmitindo nesse idioma.
 
-    ---
+---
 
-    ### ❓ Principais Perguntas:
-    - Qual a distribuição de idade dos assinantes?
-    - Quais gêneros de conteúdo são mais populares em cada região?
-    - Existe correlação entre o tempo de assinatura e a avaliação média?
-    - Qual o impacto do plano de assinatura no tempo de visualização?
-    - Qual a probabilidade de um usuário assistir um filme inteiro?
+## ❓ Principais Perguntas
 
-    ---
+### 📌 Quais são os 10 principais canais por pico de espectadores?
+| #  | Canal           | Pico de Espectadores |
+|----|---------------|--------------------|
+| 1  | Summit1g      | 310.998           |
+| 6  | NICKMERCS     | 407.428           |
+| 15 | MontanaBlack88| 110.109           |
+| 16 | Sodapoppin    | 393.348           |
+| 28 | Pestily       | 616.168           |
 
-    ### 📊 Distribuições:
+### 📌 Quais são os 10 principais canais por seguidores ganhos?
+| #  | Canal           | Seguidores Ganhos |
+|----|---------------|-------------------|
+| 1  | Summit1g      | 25.610            |
+| 6  | NICKMERCS     | 46.084.211        |
+| 15 | MontanaBlack88| 67.740            |
+| 16 | Sodapoppin    | 2.786.162         |
+| 28 | Pestily       | 24.029.726        |
+
+### 📌 Quais são os 10 principais canais por visualizações ganhas?
+| #  | Canal           | Visualizações Obtidas |
+|----|---------------|----------------------|
+| 1  | Summit1g      | 5.310.163            |
+| 6  | NICKMERCS     | 1.089.824            |
+| 15 | MontanaBlack88| 181.600              |
+| 16 | Sodapoppin    | 19.659               |
+| 28 | Pestily       | 168.112              |
+
+### 📌 Existe uma correlação entre o tempo de transmissão e o pico de espectadores?
+    - A correlação entre o tempo de transmissão e o pico de espectadores é de aproximadamente ###-0.02###   .
+    - Isso indica uma correlação negativa muito fraca, praticamente inexistente.
+    - Em outras palavras, **não há uma relação linear significativa** entre o tempo de transmissão e o número de espectadores simultâneos.
+
+### 📌 Qual é a distribuição de canais por idioma?
+| Idioma      | Quantidade de Canais |
+|------------|--------------------|
+| 🇬🇧 English    | 20                 |
+| 🇰🇷 Korean     | 2                  |
+| 🇪🇸 Spanish    | 3                  |
+| 🇵🇹 Portuguese | 3                  |
+| 🇩🇪 German     | 2                  |
+| 🇫🇷 French     | 3                  |
+| 🇷🇺 Russian    | 1                  |
+
+---
+
+### 📊 Distribuições:
 
     #### - **Distribuição Normal:**
     A idade dos assinantes pode seguir uma distribuição normal, permitindo analisar a probabilidade de encontrar assinantes em determinadas faixas etárias.  
