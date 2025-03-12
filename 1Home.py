@@ -251,20 +251,46 @@ Correlação forte (próximo de 1 ou -1):
     
         """)
                             
-        st.write(""" ### 📊 Distribuições:"
-#### - **Distribuição Normal:**
-    A idade dos assinantes pode seguir uma distribuição normal, permitindo analisar a probabilidade de encontrar assinantes em determinadas faixas etárias.  
-    O tempo de visualização também pode seguir uma distribuição normal, permitindo analisar a probabilidade de tempo de visualização em um determinado intervalo.
+        st.write("""
+### 📊 Distribuições:
 
- #### - **Distribuição Binomial:**
-    A probabilidade de um assinante assistir a um filme completo pode ser modelada por uma distribuição binomial, onde cada visualização é um evento independente com probabilidade de sucesso (assistir completo) ou fracasso (não assistir completo).  
-    A probabilidade de um usuário dar uma avaliação positiva para um conteúdo pode ser modelada por uma distribuição binomial.
+#### - **Distribuição Normal:**
+   A distribuição normal é usada para modelar variáveis contínuas que seguem uma distribuição simétrica em torno de uma média.  
+   Por exemplo, o tempo de exibição dos streamers pode seguir uma distribuição normal, permitindo analisar a probabilidade de um streamer ter um tempo de exibição em um determinado intervalo.  
+   A fórmula da distribuição normal para calcular a probabilidade de uma variável \( X \) estar entre dois valores \( a \) e \( b \) é:
+   \[
+   P(a < X < b) = \Phi\left(\frac{b - \mu}{\sigma}\right) - \Phi\left(\frac{a - \mu}{\sigma}\right)
+   \]
+   Onde:
+   - \( \mu \): Média da distribuição.
+   - \( \sigma \): Desvio padrão da distribuição.
+   - \( \Phi \): Função de distribuição acumulada da normal padrão.
+
+#### - **Distribuição Binomial:**
+   A distribuição binomial é usada para calcular a probabilidade de um número específico de sucessos em um número fixo de tentativas independentes, onde cada tentativa tem apenas dois resultados possíveis (sucesso ou fracasso).  
+   Por exemplo, a probabilidade de um streamer ser parceiro da Twitch pode ser modelada por uma distribuição binomial, onde cada streamer é uma tentativa com probabilidade de sucesso (ser parceiro) ou fracasso (não ser parceiro).  
+   A fórmula da distribuição binomial para calcular a probabilidade de exatamente \( k \) sucessos em \( n \) tentativas é:
+   \[
+   P(X = k) = C(n, k) \cdot p^k \cdot (1-p)^{n-k}
+   \]
+   Onde:
+   - \( n \): Número total de tentativas.
+   - \( k \): Número de sucessos desejados.
+   - \( p \): Probabilidade de sucesso em uma única tentativa.
+   - \( C(n, k) \): Coeficiente binomial, que representa o número de combinações de \( n \) elementos tomados \( k \) a \( k \).
 
 #### - **Distribuição de Poisson:**
-    O número de visualizações de um determinado conteúdo em um período de tempo pode ser modelado por uma distribuição de Poisson.  
-    O número de avaliações recebidas por um determinado conteúdo em um período de tempo também pode ser modelado por uma distribuição de Poisson.
-    """)
-
+   A distribuição de Poisson é usada para modelar o número de eventos que ocorrem em um intervalo de tempo ou espaço, quando esses eventos acontecem com uma taxa média conhecida e são independentes do tempo desde o último evento.  
+   Por exemplo, o número de visualizações de um determinado conteúdo em um período de tempo pode ser modelado por uma distribuição de Poisson.  
+   A fórmula da distribuição de Poisson para calcular a probabilidade de \( k \) eventos ocorrerem em um intervalo é:
+   \[
+   P(X = k) = \frac{\lambda^k e^{-\lambda}}{k!}
+   \]
+   Onde:
+   - \( \lambda \): Taxa média de ocorrência dos eventos.
+   - \( k \): Número de eventos desejados.
+   - \( e \): Constante de Euler (aproximadamente 2.71828).
+""")
         (df.head())
         colunas_numericas = df.select_dtypes(include=[np.number]).columns.tolist()
         if colunas_numericas:
