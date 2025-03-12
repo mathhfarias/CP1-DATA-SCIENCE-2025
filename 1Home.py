@@ -104,7 +104,7 @@ elif pages == "Skills":
 elif pages == "Certificados":
     st.image("IMAGES/CERTIFICADO DESIGN THINKING.png", width=600, use_container_width=True)
     st.image("IMAGES/CERTIFICADO GESTÃO DE INFRAESTRUTURA DE TI.png", width=600, use_container_width=True)
-    st.image("IMAGES/CERTIFICADO FORMAÇÃO SOCIAL E SUSTENTABILIDADE.JPEG", width=600, use_container_width=True)
+    st.image("IMAGES/CERTIFICADO FORMAÇÃO SOCIAL E SUSTENTABILIDADE.jpeg", width=600, use_container_width=True)
     st.image("IMAGES/CERTIFICADO HTML E CSS.JPG", width=600, use_container_width=True)
 
 elif pages == "Análise de Dados":
