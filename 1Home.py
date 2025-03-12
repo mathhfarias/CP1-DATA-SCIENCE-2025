@@ -104,6 +104,7 @@ elif pages == "Skills":
 elif pages == "Certificados":
     st.image("IMAGES/CERTIFICADO DESIGN THINKING.png", width=600, use_container_width=True)
     st.image("IMAGES/CERTIFICADO GESTÃO DE INFRAESTRUTURA DE TI.png", width=600, use_container_width=True)
+    st.image("IMAGES/CERTIFICADO FORMAÇÃO SOCIAL E SUSTENTABILIDADE.JPEG", width=600, use_container_width=True)
     st.image("IMAGES/CERTIFICADO HTML E CSS.JPG", width=600, use_container_width=True)
 
 elif pages == "Análise de Dados":
@@ -248,8 +249,9 @@ Correlação forte (próximo de 1 ou -1):
     | French     | 3                  |
     | Russian    | 1                  |
     
-        """)                        
-        st.write("""
+        """)
+                            
+    st.write("""
 ### 📊 Distribuições:
 
 #### - **Distribuição Normal:**
@@ -289,9 +291,9 @@ Correlação forte (próximo de 1 ou -1):
    - \( k \): Número de eventos desejados.
    - \( e \): Constante de Euler (aproximadamente 2.71828).
 """)
-        st.write(df.head())
-        colunas_numericas = df.select_dtypes(include=[np.number]).columns.tolist()
-        if colunas_numericas:
+    (df.head())
+    colunas_numericas = df.select_dtypes(include=[np.number]).columns.tolist()
+    if colunas_numericas:
             coluna_escolhida = st.selectbox(" Escolha uma coluna numérica:", colunas_numericas)
 
             if coluna_escolhida:
