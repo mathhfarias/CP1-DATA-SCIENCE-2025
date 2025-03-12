@@ -147,6 +147,43 @@ elif pages == "Análise de Dados":
     - Máximo de Peak Viewers: 639 mil espectadores
     - Média de seguidores ganhos: 205 mil
     - Distribuição de idiomas: O inglês domina, com 343 canais parceiros transmitindo nesse idioma.
+### 1. Medidas Centrais:
+### Média:
+
+- Tempo assistido: ~418 milhões de minutos
+- Tempo de transmissão: ~120 mil minutos
+- Pico de espectadores: ~37 mil
+- Média de espectadores: ~4,7 mil
+- Seguidores: ~570 mil
+- Seguidores ganhos: ~205 mil
+- Visualizações ganhas: ~11,6 milhões
+
+### Mediana (valor central dos dados, menos sensível a outliers):
+
+- Tempo assistido: ~235 milhões de minutos
+- Tempo de transmissão: ~108 mil minutos
+- Pico de espectadores: ~16,6 mil
+- Média de espectadores: ~2,4 mil
+- Moda (valor mais frequente nos dados):
+
+Por exemplo, o tempo assistido mais frequente é de ~122 milhões de minutos.
+
+### 2. Análise de Dispersão:
+### Desvio padrão (média de quanto os valores se afastam da média):
+
+- Tempo assistido: ~549 milhões de minutos
+- Pico de espectadores: ~60 mil
+- Média de espectadores: ~8,4 mil
+- Variância (outra forma de medir dispersão):Altíssima para tempo assistido e pico de espectadores, o que indica grande variação nos dados.
+
+### 3. Correlação entre Variáveis:
+Correlação forte (próximo de 1 ou -1):
+
+- Tempo assistido x Pico de espectadores (0.58) → canais mais assistidos tendem a ter picos maiores.
+- Seguidores ganhos x Seguidores (0.71) → canais maiores ganham mais seguidores.
+- Média de espectadores x Pico de espectadores (0.68) → canais que atraem grandes públicos momentâneos também mantêm boa audiência média.
+- Correlação negativa: Tempo de transmissão x Média de espectadores (-0.25) → canais que transmitem muito podem ter menos espectadores médios, sugerindo que qualidade pode ser mais importante que quantidade.
+                 
                  """)
 
         st.write("""      
