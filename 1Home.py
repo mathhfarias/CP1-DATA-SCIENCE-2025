@@ -149,7 +149,7 @@ elif pages == "Análise de Dados":
     - Distribuição de idiomas: O inglês domina, com 343 canais parceiros transmitindo nesse idioma.
                  """)
 
-    st.write("""      
+        st.write("""      
 ##  **Perguntas e Respostas - Análise de Dados do Twitch**
 
     Nesta seção, analisamos os dados do Twitch e respondemos a algumas perguntas-chave sobre audiência, engajamento e crescimento dos canais.
@@ -214,7 +214,7 @@ elif pages == "Análise de Dados":
     
         """)
                             
-st.write(""" ### 📊 Distribuições:"
+        st.write(""" ### 📊 Distribuições:"
 #### - **Distribuição Normal:**
     A idade dos assinantes pode seguir uma distribuição normal, permitindo analisar a probabilidade de encontrar assinantes em determinadas faixas etárias.  
     O tempo de visualização também pode seguir uma distribuição normal, permitindo analisar a probabilidade de tempo de visualização em um determinado intervalo.
@@ -228,10 +228,9 @@ st.write(""" ### 📊 Distribuições:"
     O número de avaliações recebidas por um determinado conteúdo em um período de tempo também pode ser modelado por uma distribuição de Poisson.
     """)
 
-st.write(df.head())
-
-colunas_numericas = df.select_dtypes(include=[np.number]).columns.tolist()
-if colunas_numericas:
+        (df.head())
+        colunas_numericas = df.select_dtypes(include=[np.number]).columns.tolist()
+        if colunas_numericas:
             coluna_escolhida = st.selectbox(" Escolha uma coluna numérica:", colunas_numericas)
 
             if coluna_escolhida:
