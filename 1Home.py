@@ -251,7 +251,7 @@ Correlação forte (próximo de 1 ou -1):
     
         """)
                             
-    st.write("""
+        st.write("""
 ### 📊 Distribuições:
 
 #### - **Distribuição Normal:**
@@ -291,7 +291,7 @@ Correlação forte (próximo de 1 ou -1):
    - \( k \): Número de eventos desejados.
    - \( e \): Constante de Euler (aproximadamente 2.71828).
 """)
-        (df.head())
+        st.write(df.head())
         colunas_numericas = df.select_dtypes(include=[np.number]).columns.tolist()
         if colunas_numericas:
             coluna_escolhida = st.selectbox(" Escolha uma coluna numérica:", colunas_numericas)
