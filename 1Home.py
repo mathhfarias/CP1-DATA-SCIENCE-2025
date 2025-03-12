@@ -248,8 +248,7 @@ Correlação forte (próximo de 1 ou -1):
     | French     | 3                  |
     | Russian    | 1                  |
     
-        """)
-                            
+        """)                        
         st.write("""
 ### 📊 Distribuições:
 
