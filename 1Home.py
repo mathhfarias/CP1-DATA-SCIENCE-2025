@@ -4,10 +4,7 @@ import scipy.stats as stats
 import plotly.express as px
 import plotly.graph_objects as go
 import numpy as np
-arr = np.zeros(836855861, dtype=np.uint8)  # Uses 1 byte per element instead of 1 byte per bool.
-import plotly.figure_factory as ff
 from plotnine import *
-
 
 # Configuração da página
 st.set_page_config(page_title="Dashboard de Distribuições Probabilísticas", layout="wide")
@@ -35,7 +32,7 @@ st.sidebar.markdown("""
             border-radius: 5px;
             margin-bottom: 10px;
             cursor: pointer;">
-            🔗 GitHub
+             🔗 GitHub
         </button>
     </a>
     <a href="https://www.linkedin.com/in/matheus-farias-de-lima" target="_blank">
@@ -55,7 +52,7 @@ st.sidebar.markdown("""
     </a>
 """, unsafe_allow_html=True)
 
-# Adicionando espaçamento extra antes do "Baixar CV"
+# Adicionando espaçamento extra
 st.sidebar.markdown("<br>", unsafe_allow_html=True)
 
 st.sidebar.markdown("### Desenvolvido por Matheus Farias de Lima")
@@ -63,16 +60,16 @@ st.sidebar.markdown("### Desenvolvido por Matheus Farias de Lima")
 if pages == "Quem sou eu?":
     st.image("IMAGES/MATHEUS.PNG", width=600, use_container_width=True)
     st.write("""
-    - 🎓 **Estudante da Faculdade de Informática e Administração Paulista (FIAP)**, atualmente cursando **Engenharia de Software**.
-    - 🌍 Apaixonado por **tecnologia e inovação**, com grande interesse em oportunidades internacionais para **expandir experiências profissionais**.
-    - 💡 Foco em **desenvolvimento Front-End**, com conhecimento sólido em diversas tecnologias.
-    - 🚀 **Experiência prática** com projetos acadêmicos e desenvolvimento de soluções para empresas reais.
-    - 🔧 Tecnologias principais: **React, JavaScript, Java, Python, Docker e APIs REST**.
+    -  **Estudante da Faculdade de Informática e Administração Paulista (FIAP)**, atualmente cursando **Engenharia de Software**.
+    -  Apaixonado por **tecnologia e inovação**, com grande interesse em oportunidades internacionais para **expandir experiências profissionais**.
+    -  Foco em **desenvolvimento Front-End**, com conhecimento sólido em diversas tecnologias.
+    -  **Experiência prática** com projetos acadêmicos e desenvolvimento de soluções para empresas reais.
+    -  Tecnologias principais: **React, JavaScript, Java, Python, Docker e APIs REST**.
     """)
 
 elif pages == "Formação e Experiências Profissionais":
     st.image("IMAGES/FIAP.png", width=600, use_container_width=True)
-    st.header("🎓 Formação e Experiências Profissionais")
+    st.header(" Formação e Experiências Profissionais")
     st.write("""
     - **Formação Acadêmica:**
         - Engenharia de Software na **FIAP** (Faculdade de Informática e Administração Paulista).
@@ -87,7 +84,7 @@ elif pages == "Formação e Experiências Profissionais":
 
 elif pages == "Skills":
     st.image("IMAGES/SKILLS.png", width=600, use_container_width=True)
-    st.header("🚀 Skills")
+    st.header(" Skills")
     st.write("""
     - **Hard Skills:**
         - 🔹 Especialização em **Front-End**
@@ -103,35 +100,34 @@ elif pages == "Skills":
         - 🌍 **Básico em espanhol**, aulas durante o periodo escolar.   
     """)
 
+
 elif pages == "Certificados":
-    st.image("IMAGES/CERTIFICADO DESIGN THINKING.png", width=600, use_container_width=True) 
+    st.image("IMAGES/CERTIFICADO DESIGN THINKING.png", width=600, use_container_width=True)
     st.image("IMAGES/CERTIFICADO GESTÃO DE INFRAESTRUTURA DE TI.png", width=600, use_container_width=True)
     st.image("IMAGES/CERTIFICADO FORMAÇÃO SOCIAL E SUSTENTABILIDADE.JPEG", width=600, use_container_width=True)
     st.image("IMAGES/CERTIFICADO HTML E CSS.JPG", width=600, use_container_width=True)
 
-                
 elif pages == "Análise de Dados":
-    st.header("📊 Análise de Dados")
+    st.header(" Análise de Dados")
 
     st.write("Carregue um arquivo Excel para visualizar a distribuição de uma variável numérica.")
     uploaded_file = st.file_uploader("Carregue seu arquivo Excel", type=["xlsx", "xls"])
 
     if uploaded_file is not None:
         df = pd.read_excel(uploaded_file)
-        st.write("📌 **Amostra dos dados:**")
+        st.write(" ## Amostra dos dados: Twitch Streaming")
         st.write("""
-
-    **Problema:**
+    ## Problema:
 
     Analisar o comportamento dos views da Stream para entender quais fatores influenciam a satisfação e o tempo de visualização, visando melhorar a retenção de clientes e a recomendação de conteúdo.
 
+  
 ---
 
+    
 ### 📝 Dados e Tipos:
 
 #### Estrutura dos Dados:
-O dataset contém 1000 registros e 11 colunas. Aqui está um resumo das colunas e seus tipos:
-
     - Channel (string): Nome do canal.
     - Watch time (Minutes) (int64): Tempo total assistido em minutos.
     - Stream time (Minutes) (int64): Tempo total de transmissão em minutos.
@@ -151,104 +147,121 @@ O dataset contém 1000 registros e 11 colunas. Aqui está um resumo das colunas 
     - Máximo de Peak Viewers: 639 mil espectadores
     - Média de seguidores ganhos: 205 mil
     - Distribuição de idiomas: O inglês domina, com 343 canais parceiros transmitindo nesse idioma.
+                 """)
 
----
+    st.write("""      
+##  **Perguntas e Respostas - Análise de Dados do Twitch**
 
-## ❓ Principais Perguntas
+    Nesta seção, analisamos os dados do Twitch e respondemos a algumas perguntas-chave sobre audiência, engajamento e crescimento dos canais.
 
-### 📌 Quais são os 10 principais canais por pico de espectadores?
-| #  | Canal           | Pico de Espectadores |
-|----|---------------|--------------------|
-| 1  | Summit1g      | 310.998           |
-| 6  | NICKMERCS     | 407.428           |
-| 15 | MontanaBlack88| 110.109           |
-| 16 | Sodapoppin    | 393.348           |
-| 28 | Pestily       | 616.168           |
+    *** 1. O crescimento de seguidores está mais correlacionado com o tempo de transmissão ou com o pico de espectadores?**
+    A análise mostra que a quantidade de seguidores ganhos está mais relacionada com a capacidade do canal de atrair grandes audiências momentâneas do que com a quantidade de tempo que ele fica no ar. A correlação entre tempo de transmissão e seguidores ganhos é praticamente nula.
 
-### 📌 Quais são os 10 principais canais por seguidores ganhos?
-| #  | Canal           | Seguidores Ganhos |
-|----|---------------|-------------------|
-| 1  | Summit1g      | 25.610            |
-| 6  | NICKMERCS     | 46.084.211        |
-| 15 | MontanaBlack88| 67.740            |
-| 16 | Sodapoppin    | 2.786.162         |
-| 28 | Pestily       | 24.029.726        |
+    ### 2. Os canais que não transmitem em inglês têm crescimento proporcionalmente menor?**
+    Como o inglês domina em número de canais e seguidores, os canais em outros idiomas têm, proporcionalmente, um crescimento menor. No entanto, isso pode ser mais uma questão de volume do que de potencial, pois esses canais atendem nichos específicos.
 
-### 📌 Quais são os 10 principais canais por visualizações ganhas?
-| #  | Canal           | Visualizações Obtidas |
-|----|---------------|----------------------|
-| 1  | Summit1g      | 5.310.163            |
-| 6  | NICKMERCS     | 1.089.824            |
-| 15 | MontanaBlack88| 181.600              |
-| 16 | Sodapoppin    | 19.659               |
-| 28 | Pestily       | 168.112              |
+    ### 3. Existe uma relação entre o conteúdo adulto Mature e o número médio de espectadores?**
+    O Twitch tende a favorecer conteúdos não adultos em recomendações e destaques, o que pode impactar a popularidade geral. Para responder com precisão, seria necessário cruzar essa informação com os números médios de espectadores.
 
-### 📌 Existe uma correlação entre o tempo de transmissão e o pico de espectadores?
-    - A correlação entre o tempo de transmissão e o pico de espectadores é de aproximadamente ###-0.02###   .
+    ### 4. Há canais com poucos seguidores, mas que conseguem altos picos de espectadores? O que isso pode indicar?**
+    Sim! Um exemplo é o canal Pestily, que teve um pico de 616.168 espectadores, mas não está entre os que mais ganharam seguidores. Isso pode indicar eventos pontuais, colaborações ou torneios que atraem público temporário, sem conversão em seguidores.
+
+    ### 5. Existe um idioma que apresenta maior fidelização dos espectadores em termos de média de visualizações ganhas?**
+    Canais em idiomas menos comuns podem ter públicos mais fiéis, pois atendem comunidades específicas com menos alternativas. Porém, o inglês lidera em número absoluto de visualizações.
+
+    ###  Quais são os 10 principais canais por pico de espectadores?
+    | #  | Canal         | Pico de Espectadores |
+    |----|---------------|--------------------|
+    | 1  | Summit1g      | 310.998            |
+    | 6  | NICKMERCS     | 407.428            |
+    | 15 | MontanaBlack88| 110.109            |
+    | 16 | Sodapoppin    | 393.348            |
+    | 28 | Pestily       | 616.168            |
+
+    ###  Quais são os 10 principais canais por seguidores ganhos?
+    | #  | Canal         | Seguidores Ganhos |
+    |----|---------------|-------------------|
+    | 1  | Summit1g      | 25.610            |
+    | 6  | NICKMERCS     | 46.084.211        |
+    | 15 | MontanaBlack88| 67.740            |
+    | 16 | Sodapoppin    | 2.786.162         |
+    | 28 | Pestily       | 24.029.726        |
+
+    ###  Quais são os 10 principais canais por visualizações ganhas?
+    | #  | Canal         | Visualizações Obtidas |
+    |----|---------------|----------------------|
+    | 1  | Summit1g      | 5.310.163            |
+    | 6  | NICKMERCS     | 1.089.824            |
+    | 15 | MontanaBlack88| 181.600              |
+    | 16 | Sodapoppin    | 19.659              |
+    | 28 | Pestily       | 168.112              |
+
+    ### 📌 Existe uma correlação entre o tempo de transmissão e o pico de espectadores?
+    - A correlação entre o tempo de transmissão e o pico de espectadores é de aproximadamente ###-0.02###.
     - Isso indica uma correlação negativa muito fraca, praticamente inexistente.
     - Em outras palavras, **não há uma relação linear significativa** entre o tempo de transmissão e o número de espectadores simultâneos.
 
-### 📌 Qual é a distribuição de canais por idioma?
-| Idioma      | Quantidade de Canais |
-|------------|--------------------|
-| 🇬🇧 English    | 20                 |
-| 🇰🇷 Korean     | 2                  |
-| 🇪🇸 Spanish    | 3                  |
-| 🇵🇹 Portuguese | 3                  |
-| 🇩🇪 German     | 2                  |
-| 🇫🇷 French     | 3                  |
-| 🇷🇺 Russian    | 1                  |
-
----
-
-### 📊 Distribuições:
-
-    #### - **Distribuição Normal:**
+    ###  Qual é a distribuição de canais por idioma?
+    | Idioma     | Quantidade de Canais |
+    |------------|--------------------|
+    | English    | 20                 |
+    | Korean     | 2                  |
+    | Spanish    | 3                  |
+    | Portuguese | 3                  |
+    | German     | 2                  |
+    | French     | 3                  |
+    | Russian    | 1                  |
+    
+        """)
+                            
+st.write(""" ### 📊 Distribuições:"
+#### - **Distribuição Normal:**
     A idade dos assinantes pode seguir uma distribuição normal, permitindo analisar a probabilidade de encontrar assinantes em determinadas faixas etárias.  
     O tempo de visualização também pode seguir uma distribuição normal, permitindo analisar a probabilidade de tempo de visualização em um determinado intervalo.
 
-    #### - **Distribuição Binomial:**
+ #### - **Distribuição Binomial:**
     A probabilidade de um assinante assistir a um filme completo pode ser modelada por uma distribuição binomial, onde cada visualização é um evento independente com probabilidade de sucesso (assistir completo) ou fracasso (não assistir completo).  
     A probabilidade de um usuário dar uma avaliação positiva para um conteúdo pode ser modelada por uma distribuição binomial.
 
-    #### - **Distribuição de Poisson:**
+#### - **Distribuição de Poisson:**
     O número de visualizações de um determinado conteúdo em um período de tempo pode ser modelado por uma distribuição de Poisson.  
     O número de avaliações recebidas por um determinado conteúdo em um período de tempo também pode ser modelado por uma distribuição de Poisson.
     """)
-        st.write(df.head())
-        
-        colunas_numericas = df.select_dtypes(include=[np.number]).columns.tolist()
-        if colunas_numericas:
-            coluna_escolhida = st.selectbox("🔎 Escolha uma coluna numérica:", colunas_numericas)
-            
+
+st.write(df.head())
+
+colunas_numericas = df.select_dtypes(include=[np.number]).columns.tolist()
+if colunas_numericas:
+            coluna_escolhida = st.selectbox(" Escolha uma coluna numérica:", colunas_numericas)
+
             if coluna_escolhida:
-                st.write("📊 **Distribuição dos dados:**")
+                st.write(" **Distribuição dos dados:**")
                 st.write(df[coluna_escolhida].describe())
-                
-                dist = st.selectbox("📈 Escolha a distribuição para análise:", ["Poisson", "Normal", "Binomial"])
-                
+
+                dist = st.selectbox(" Escolha a distribuição para análise:", ["Poisson", "Normal", "Binomial"])
+
                 if dist == "Poisson":
                     lambda_est = df[coluna_escolhida].mean()
                     x = np.arange(0, 2 * lambda_est)
                     y = stats.poisson.pmf(x, lambda_est)
-                    st.write("📌 **Distribuição de Poisson**")
+                    st.write(" **Distribuição de Poisson**")
                     fig = go.Figure(data=[go.Bar(x=x, y=y)])
                     st.plotly_chart(fig)
-                
+
                 elif dist == "Normal":
                     mu_est = df[coluna_escolhida].mean()
                     sigma_est = df[coluna_escolhida].std()
                     x = np.linspace(mu_est - 4*sigma_est, mu_est + 4*sigma_est, 100)
                     y = stats.norm.pdf(x, mu_est, sigma_est)
-                    st.write("📌 **Distribuição Normal**")
+                    st.write(" **Distribuição Normal**")
                     fig = go.Figure(data=[go.Scatter(x=x, y=y, mode='lines')])
                     st.plotly_chart(fig)
-                
+
                 elif dist == "Binomial":
                     n = 10  # número de tentativas fixo
                     p = df[coluna_escolhida].mean() / max(df[coluna_escolhida])
                     x = np.arange(0, n + 1)
                     y = stats.binom.pmf(x, n, p)
-                    st.write("📌 **Distribuição Binomial**")
+                    st.write(" **Distribuição Binomial**")
                     fig = go.Figure(data=[go.Bar(x=x, y=y)])
                     st.plotly_chart(fig)
