@@ -251,7 +251,7 @@ Correlação forte (próximo de 1 ou -1):
     
         """)
                             
-        st.write("""
+        st.write(r"""
 ### 📊 Distribuições:
 
 #### - **Distribuição Normal:**
