@@ -62,7 +62,7 @@ if pages == "Quem sou eu?":
     st.write("""
     -  **Estudante da Faculdade de Informática e Administração Paulista (FIAP)**, atualmente cursando **Engenharia de Software**.
     -  Apaixonado por **tecnologia e inovação**, com grande interesse em oportunidades internacionais para **expandir experiências profissionais**.
-    -  Foco em **desenvolvimento Front-End**, com conhecimento sólido em diversas tecnologias.
+    -  Foco em **desenvolvimento Front-End**, com conhecimento sólido em diversas tecnologias atuais.
     -  **Experiência prática** com projetos acadêmicos e desenvolvimento de soluções para empresas reais.
     -  Tecnologias principais: **React, JavaScript, Java, Python, Docker e APIs REST**.
     """)
